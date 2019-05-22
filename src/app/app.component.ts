@@ -15,7 +15,8 @@ export class AppComponent {
     {active:true,nombre:'hotel'},
     {active:false,nombre:'zapateria'}
 ];
-
+lat:number=6.2026329;
+lng:number=-75.5917091;
   constructor(){
 
   }
