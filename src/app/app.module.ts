@@ -4,8 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AgmCoreModule } from '@agm/core';
-import {ResaltarDirective} from './directives/resaltar.directive';
-import {ContarClicksDirective} from './directives/contar-clicks.directive';
+import { ResaltarDirective } from './directives/resaltar.directive';
+import { ContarClicksDirective } from './directives/contar-clicks.directive';
 
 
 @NgModule({
@@ -15,11 +15,10 @@ import {ContarClicksDirective} from './directives/contar-clicks.directive';
     ContarClicksDirective
   ],
   imports: [
-    BrowserModule,
-      //HttpModule,
+      BrowserModule,
       FormsModule,
       AgmCoreModule.forRoot({
-        apiKey: 'AIzaSyAL5DbMR58gvTncO4ZdsUveJGIqLWzlGas'
+      apiKey: 'AIzaSyAL5DbMR58gvTncO4ZdsUveJGIqLWzlGas'
       }),
     AppRoutingModule
   ],

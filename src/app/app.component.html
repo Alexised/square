@@ -1,14 +1,43 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Square</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Inicio<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Contacto</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 <agm-map [latitude]="lat" [longitude]="lng">
   <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
 </agm-map>
 <hr />
-<ul>
-  <ng-container *ngFor="let lugar of lugares">
-    <li *ngIf="lugar.active">{{lugar.nombre}} </li>
-  </ng-container>
-</ul>
-<ul>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h2>Lugares Cercanos</h2>
+      <ul class="list-group">
+        <ng-container *ngFor="let lugar of lugares">
+          <li *ngIf="lugar.active" class="list-group-item">{{lugar.nombre}} </li>
+        </ng-container>
+      </ul>
+    </div>
+    <div class="col-md-4">
+      <h2>Destacados</h2>
+    </div>
+
+  </div>
+</div>
+<!-- <ul>
   <ng-container *ngFor="let lugar of lugares ; let i = index" [ngSwitch]="lugar.cercania">
     <a><li contar-clicks [ngStyle]="{color:(lugar.active)? 'black' :'gray'}" [ngClass]="{numero_par:(i+1)%2 !== 0}" [resaltar]="lugar.plan">
       {{lugar.nombre}} -
@@ -18,4 +47,4 @@
     </li>
   </a>
   </ng-container>
-</ul>
+</ul> -->
