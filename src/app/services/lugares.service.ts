@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-
+import { AngularFireDatabase } from '@angular/fire/database';
 @Injectable()
 export class LugaresService {
     lugares: any = [
@@ -10,13 +10,18 @@ export class LugaresService {
         { id: 5, plan: 'pagado', cercania: 3, distancia: 35, active: true, nombre: 'hotel', description: 'Descripcion de este negocio. Mas adelante tendremos mas informacion' },
         { id: 6, plan: 'gratuito', cercania: 3, distancia: 120, active: false, nombre: 'zapateria', description: 'Descripcion de este negocio. Mas adelante tendremos mas informacion' }
     ];
+    constructor(private afDB: AngularFireDatabase ) { }
     public getLugares() {
-        return this.lugares;
+        return this.afDB.list('lugares/').valueChanges();
     }
     public buscarLugar(id) {
         return this.lugares.filter((lugar) => {
             // tslint:disable-next-line: radix
             return lugar.id === parseInt(id);
         })[0] || null;
+    }
+    public guardarLugar(lugar){
+        console.log(lugar);
+        this.afDB.database.ref('lugares/' + lugar.id).set(lugar);
     }
 }
