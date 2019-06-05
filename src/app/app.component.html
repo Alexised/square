@@ -1,10 +1,32 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Square</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-<agm-map [latitude]="lat" [longitude]="lng">
-  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-</agm-map>
-<ul>
-  <ng-container *ngFor="let lugar of lugares">
-  <li *ngIf="lugar.active">{{lugar.nombre}}  </li>
-</ng-container>
-</ul>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/lugares">Inicio<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/contacto">Contacto</a>
+        </li>
+    </ul>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
+<!-- <ul>
+  <ng-container *ngFor="let lugar of lugares ; let i = index" [ngSwitch]="lugar.cercania">
+    <a><li contar-clicks [ngStyle]="{color:(lugar.active)? 'black' :'gray'}" [ngClass]="{numero_par:(i+1)%2 !== 0}" [resaltar]="lugar.plan">
+      {{lugar.nombre}} -
+      <span *ngSwitchCase="1" [ngStyle]="{color:'green'}">Muy Cercano</span>
+      <span *ngSwitchCase="2" [ngStyle]="{color:'black'}">Cercano</span>
+      <span *ngSwitchCase="3" [ngStyle]="{color:'red'}">Lejano</span>
+    </li>
+  </a>
+  </ng-container>
+</ul> -->

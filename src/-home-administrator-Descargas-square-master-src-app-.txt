@@ -1,0 +1,1 @@
+/home/administrator/Descargas/square-master/src/app/directives
