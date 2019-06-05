@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+    integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+<div id="fondo">
+    <div class="card opacity">
+        <div class="d-flex flex-row">
+            <div class="p-2"><a routerLink="/lugares">lugares</a></div>
+            <div class="p-2">/ Crear Lugar</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6  offset-md-3 opacity esp">
+                <h2 class="d-flex justify-content-center">¡Escríbanos!</h2>
+                <label>Nombre</label>
+                <input type="text" class="form-control" [(ngModel)]="lugar.nombre">
+                <br>
+                <label>Distancia</label>
+                <input type="number" class="form-control" [(ngModel)]="lugar.distancia">
+                <br>
+                <label>Cercania</label>
+                <input type="number" class="form-control" [(ngModel)]="lugar.cercania">
+                <br>
+                <label>Descripcion</label>
+                <textarea class="form-control" [(ngModel)]="lugar.description"></textarea>
+                <label>Plan</label>
+                <input type="text" class="form-control" [(ngModel)]="lugar.plan">
+                <br>
+                <hr>
+                <div class="d-flex justify-content-center">
+                    <a class="btn btn-success" (click)="guardarLugar()">Enviar</a>
+                    <a class="btn btn-secondary">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

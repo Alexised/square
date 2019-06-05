@@ -12,15 +12,27 @@ import { DetalleComponent } from './detalle/detalle.component';
 import { LugaresComponent } from './lugares/lugares.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { LugaresService } from './services/lugares.service';
+import { AngularFireModule } from '@angular/fire';
+import { CrearComponent } from './crear/crear.component';
 
 const appRoutes: Routes = [
   { path: '', component: LugaresComponent },
   { path: 'lugares', component: LugaresComponent },
   { path: 'detalle/:id', component: DetalleComponent },
-  { path: 'contacto', component: ContactoComponent }
+  { path: 'contacto', component: ContactoComponent },
+  { path: 'crear', component: CrearComponent }
+
 
 ];
-
+export const firebaseConfig = {
+  apiKey: 'AIzaSyBmoEa8VEyfMk4TtshrT0vZVqJc2L7fFsU',
+  authDomain: 'square-241401.firebaseapp.com',
+  databaseURL: 'https://square-241401.firebaseio.com',
+  projectId: 'square-241401',
+  storageBucket: 'square-241401.appspot.com',
+  messagingSenderId: '359929173706',
+  appId: '1:359929173706:web:2fb60d0f755d9967'
+};
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +40,8 @@ const appRoutes: Routes = [
     ContarClicksDirective,
     DetalleComponent,
     LugaresComponent,
-    ContactoComponent
+    ContactoComponent,
+    CrearComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +51,8 @@ const appRoutes: Routes = [
     }),
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes),
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   providers: [LugaresService],
   bootstrap: [AppComponent]

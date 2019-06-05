@@ -1,0 +1,25 @@
+#fondo{
+    background-image: url("../../assets/443d082b-af1a-4940-aa57-0065e16c5b0e.jpeg");
+    background-position: 100%;
+    background-size:cover;
+    /* height: 115vh; */
+    font-family: Arial;
+    
+}
+.opacity{
+    background-color:rgb(240,248,255,0.7);
+}
+
+.esp{
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.btn{
+    margin: 5px;
+}
+
+span{
+    font-family: Arial;
+    font-weight: normal;
+}
