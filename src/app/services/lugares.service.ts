@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { AngularFireDatabase } from '@angular/fire/database';
 @Injectable()
 export class LugaresService {
@@ -10,7 +11,7 @@ export class LugaresService {
         { id: 5, plan: 'pagado', cercania: 3, distancia: 35, active: true, nombre: 'hotel', description: 'Descripcion de este negocio. Mas adelante tendremos mas informacion' },
         { id: 6, plan: 'gratuito', cercania: 3, distancia: 120, active: false, nombre: 'zapateria', description: 'Descripcion de este negocio. Mas adelante tendremos mas informacion' }
     ];
-    constructor(private afDB: AngularFireDatabase ) { }
+    constructor(private afDB: AngularFireDatabase, private http: HttpClient ) { }
     public getLugares() {
         return this.afDB.list('lugares/').valueChanges();
     }
@@ -20,8 +21,12 @@ export class LugaresService {
             return lugar.id === parseInt(id);
         })[0] || null;
     }
-    public guardarLugar(lugar){
+    public guardarLugar(lugar) {
         console.log(lugar);
         this.afDB.database.ref('lugares/' + lugar.id).set(lugar);
     }
+    public obtenerGeodata(dirrecion) {
+        return this.http.get('https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAL5DbMR58gvTncO4ZdsUveJGIqLWzlGas&address='+ dirrecion);
+    }
+
 }
